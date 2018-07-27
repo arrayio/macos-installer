@@ -1,0 +1,239 @@
+//
+//  ProgressVC.swift
+//  Installer
+//
+//  Created by Mikhail Lutskiy on 16.07.2018.
+//  Copyright © 2018 Mikhail Lutskii. All rights reserved.
+//
+
+import Cocoa
+import Alamofire
+import ObjectMapper
+import tarkit
+import ObjectivePGP
+import LocalAuthentication
+
+class ProgressVC: NSViewController {
+    
+    let kEXTENSION = ".app"
+    
+    private var primaryLink = ""
+
+    @IBOutlet weak var statusLabel: NSTextField!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Loader.shared.loadConfig()
+        let myContext = LAContext()
+        let myLocalizedReasonString = "unlock itself"
+
+        var authError: NSError? = nil
+        if #available(iOS 8.0, OSX 10.12, *) {
+            if myContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError) {
+                myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
+                    if (success) {
+                        // User authenticated successfully, take appropriate action
+                        print("Success")
+                        self.primaryLink = self.generateLink()
+                        self.loadSignature()
+                    } else {
+                        // User did not authenticate successfully, look at error and take appropriate action
+                        print("Failure")
+                    }
+                }
+            } else {
+                // Could not evaluate policy; look at authError and present an appropriate message to user
+                print("Evaluation")
+                print(authError)
+            }
+        } else {
+            // Fallback on earlier versions
+            print("Fallback")
+        }
+    }
+    
+    func downloadFileDestination(fileName: String) -> DownloadRequest.DownloadFileDestination {
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+            let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
+            let fileURL = documentsURL.appendingPathComponent(fileName)
+            print(fileURL)
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        return destination
+    }
+    
+    func untar () {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+        let dataPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/file.tar.gz")
+        let toPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/application")
+        print(toPath)
+        print(dataPath)
+        do {
+            try DCTar.decompressFile(atPath: dataPath, toPath: toPath)
+            self.progressIndicator.doubleValue += 20
+        } catch (let error) {
+            print(error)
+            self.errorReadingResults(question: "Ошибка", text: error.localizedDescription)
+        }
+    }
+    
+    func loadSignature() {
+        DispatchQueue.main.async {
+            self.statusLabel.stringValue = "Скачивание подписи"
+        }
+        Alamofire.download(URL(string: primaryLink + ".sig")!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.sig"))
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+            }
+            .responseData { response in
+                print(response.result.value)
+                print(response)
+                print(response.response)
+                print(response.request)
+                print(response.result)
+                if let data = response.result.value {
+                    print(data)
+                    //let image = UIImage(data: data)
+                }
+                switch response.result {
+                case .success:
+                    self.progressIndicator.doubleValue += 20
+                    self.loadArchive()
+                    print("Validation Successful")
+                case .failure(let error):
+                    print(error)
+                    self.errorReadingResults(question: "Ошибка", text: error.localizedDescription)
+                }
+        }
+    }
+    
+    func loadArchive() {
+        print(primaryLink)
+        DispatchQueue.main.async {
+            self.statusLabel.stringValue = "Скачивание архива"
+        }
+        Alamofire.download(URL(string: primaryLink)!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.tar.gz"))
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+            }
+            .responseData { response in
+                print(response.result.value)
+                print(response)
+                print(response.response)
+                print(response.request)
+                print(response.result)
+                if let data = response.result.value {
+                    print(data)
+                    //let image = UIImage(data: data)
+                }
+                switch response.result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.statusLabel.stringValue = "Распаковка"
+                    }
+                    self.progressIndicator.doubleValue += 20
+                    self.untar()
+                    DispatchQueue.main.async {
+                        self.statusLabel.stringValue = "Проверка подписи"
+                    }
+                    let bundle = Bundle.main
+                    let path = bundle.path(forResource: "key", ofType: "asc")
+                    let key = try! ObjectivePGP.readKeys(fromPath: path!)
+                    print(key)
+                    
+                    let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+                    let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
+                    let files = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.sig")
+                    let fileURL = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.tar.gz")
+                    
+                    print(try! Data(contentsOf: fileURL))
+                    
+                    let isVerify = try! VerifySigning.isVerifyFile(Data(contentsOf: fileURL), withSignatureData: Data(contentsOf: files), with: key)
+                    print(isVerify)
+                    self.progressIndicator.doubleValue += 20
+                    if (isVerify) {
+                        self.copyAppToApplication()
+                    } else {
+                        self.errorReadingResults(question: "Ошибка", text: "Ошибка в проверке подписи")
+                    }
+                case .failure(let error):
+                    print(error)
+                    self.errorReadingResults(question: "Ошибка", text: error.localizedDescription)
+                }
+        }
+    }
+    
+    func copyAppToApplication () {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+        let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
+        let fileURL = documentsURL.appendingPathComponent("\(Loader.shared.config.name ?? "installer")/application")
+        
+        let destURL = URL(fileURLWithPath: "/Applications/", isDirectory: true)
+        let completelyDestURL = destURL.appendingPathComponent(Loader.shared.config.name ?? "Application", isDirectory: true)
+        print(completelyDestURL)
+        
+        let fileManager = FileManager.default
+        
+        do {
+            try fileManager.createDirectory(at: completelyDestURL, withIntermediateDirectories: false, attributes: nil)
+        } catch let error {
+            print(error)
+        }
+        
+        let enumerator = fileManager.enumerator(atPath: fileURL.path)
+        print(fileURL.path)
+        print(enumerator)
+        let filePaths = enumerator?.allObjects as! [String]
+        let appFilePaths = filePaths.filter{$0.contains(kEXTENSION)}
+        for appFilePath in appFilePaths{
+            if String(appFilePath.suffix(4)) == kEXTENSION {
+                
+                var fullNameArr = appFilePath.components(separatedBy: "/")
+                let appFilePathNew = fullNameArr[fullNameArr.count-1]
+                
+                if !fileManager.fileExists(atPath: completelyDestURL.appendingPathComponent(appFilePathNew).path) {
+                    do {
+                        try fileManager.copyItem(at: fileURL.appendingPathComponent(appFilePath, isDirectory: false), to: completelyDestURL.appendingPathComponent(appFilePathNew))
+                        print(destURL)
+                    }
+                    catch let error as NSError {
+                        print("Ooops! Something went wrong: \(error)")
+                    }
+                } else {
+                    do {
+                        try fileManager.removeItem(at: completelyDestURL.appendingPathComponent(appFilePathNew))
+                        try fileManager.copyItem(at: fileURL.appendingPathComponent(appFilePath), to: completelyDestURL.appendingPathComponent(appFilePathNew))
+                    }
+                    catch let error as NSError {
+                        print("Ooops! Something went wrong: \(error)")
+                    }
+                }
+                print(destURL)
+            }
+        }
+        DispatchQueue.main.async {
+            self.statusLabel.stringValue = "Копирование завершено"
+            self.progressIndicator.increment(by: 20)
+        }
+    }
+
+    func generateLink() -> String {
+        let link = Loader.shared.config.downloadLinks?.randomItem()
+        return link!
+    }
+    
+    func errorReadingResults(question: String, text: String) {
+        let alert = NSAlert()
+        alert.messageText = question
+        alert.informativeText = text
+        alert.addButton(withTitle: "OK")
+        alert.alertStyle = .warning
+        alert.beginSheetModal(for: self.view.window!) { (modalResponse) in
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
+                NSApplication.shared.terminate(self)
+            }
+        }
+    }
+}
