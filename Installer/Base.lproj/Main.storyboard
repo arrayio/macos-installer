@@ -53,6 +53,9 @@
                                         </menuItem>
                                     </items>
                                 </menu>
+                                <connections>
+                                    <binding destination="lxa-J1-8Ch" name="font" keyPath="values" id="OVL-Dg-fe5"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Edit" id="5QF-Oa-p0T">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -307,6 +310,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Installer" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="lxa-J1-8Ch"/>
             </objects>
             <point key="canvasLocation" x="757" y="-208"/>
         </scene>

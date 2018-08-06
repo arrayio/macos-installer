@@ -23,6 +23,12 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         self.licenseViewButtons.isHidden = true
     }
     
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        Loader.shared.loadConfig()
+        self.view.window?.title = (Loader.shared.config.title?.en)!
+    }
+    
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
         print(identifier.rawValue)
         switch identifier.rawValue {

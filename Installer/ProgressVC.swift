@@ -25,32 +25,32 @@ class ProgressVC: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Loader.shared.loadConfig()
-        let myContext = LAContext()
-        let myLocalizedReasonString = "unlock itself"
-
-        var authError: NSError? = nil
-        if #available(iOS 8.0, OSX 10.12, *) {
-            if myContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError) {
-                myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
-                    if (success) {
-                        // User authenticated successfully, take appropriate action
-                        print("Success")
+//        let myContext = LAContext()
+//        let myLocalizedReasonString = "unlock itself"
+//
+//        var authError: NSError? = nil
+//        if #available(iOS 8.0, OSX 10.12, *) {
+//            if myContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &authError) {
+//                myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
+//                    if (success) {
+//                        // User authenticated successfully, take appropriate action
+//                        print("Success")
                         self.primaryLink = self.generateLink()
                         self.loadSignature()
-                    } else {
-                        // User did not authenticate successfully, look at error and take appropriate action
-                        print("Failure")
-                    }
-                }
-            } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
-                print("Evaluation")
-                print(authError)
-            }
-        } else {
-            // Fallback on earlier versions
-            print("Fallback")
-        }
+//                    } else {
+//                        // User did not authenticate successfully, look at error and take appropriate action
+//                        print("Failure")
+//                    }
+//                }
+//            } else {
+//                // Could not evaluate policy; look at authError and present an appropriate message to user
+//                print("Evaluation")
+//                print(authError)
+//            }
+//        } else {
+//            // Fallback on earlier versions
+//            print("Fallback")
+//        }
     }
     
     func downloadFileDestination(fileName: String) -> DownloadRequest.DownloadFileDestination {
@@ -66,17 +66,21 @@ class ProgressVC: NSViewController {
     
     func untar () {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
-        let dataPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/file.tar.gz")
+        let dataPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")")
+        let filePath = dataPath.appending("/file.tar.gz")
         let toPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/application")
         print(toPath)
         print(dataPath)
-        do {
-            try DCTar.decompressFile(atPath: dataPath, toPath: toPath)
-            self.progressIndicator.doubleValue += 20
-        } catch (let error) {
-            print(error)
-            self.errorReadingResults(question: "Ошибка", text: error.localizedDescription)
+        
+        
+        let script = NSAppleScript(source: "do shell script \"cd '" + dataPath + "' && tar -xzvf '" + filePath + "'\"")
+        var errorInfo: NSDictionary?
+        script?.executeAndReturnError(&errorInfo)
+        if let error = errorInfo {
+            print("ERROR: \(error)")
+            self.errorReadingResults(question: "Ошибка", text: "Ошибка при разархивировании")
         }
+        self.progressIndicator.doubleValue += 20
     }
     
     func loadSignature() {
@@ -168,9 +172,10 @@ class ProgressVC: NSViewController {
     func copyAppToApplication () {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
         let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
-        let fileURL = documentsURL.appendingPathComponent("\(Loader.shared.config.name ?? "installer")/application")
-        
-        let destURL = URL(fileURLWithPath: "/Applications/", isDirectory: true)
+        let fileURL = documentsURL.appendingPathComponent("\(Loader.shared.config.name ?? "installer")")
+
+        let applicationsPath = NSSearchPathForDirectoriesInDomains(.applicationDirectory, .userDomainMask, true)[0]
+        let destURL = URL(fileURLWithPath: applicationsPath, isDirectory: true)
         let completelyDestURL = destURL.appendingPathComponent(Loader.shared.config.name ?? "Application", isDirectory: true)
         print(completelyDestURL)
         
@@ -189,10 +194,10 @@ class ProgressVC: NSViewController {
         let appFilePaths = filePaths.filter{$0.contains(kEXTENSION)}
         for appFilePath in appFilePaths{
             if String(appFilePath.suffix(4)) == kEXTENSION {
-                
                 var fullNameArr = appFilePath.components(separatedBy: "/")
                 let appFilePathNew = fullNameArr[fullNameArr.count-1]
-                
+                NameStorage.shared.data.append(appFilePathNew)
+
                 if !fileManager.fileExists(atPath: completelyDestURL.appendingPathComponent(appFilePathNew).path) {
                     do {
                         try fileManager.copyItem(at: fileURL.appendingPathComponent(appFilePath, isDirectory: false), to: completelyDestURL.appendingPathComponent(appFilePathNew))
@@ -213,9 +218,18 @@ class ProgressVC: NSViewController {
                 print(destURL)
             }
         }
-        DispatchQueue.main.async {
-            self.statusLabel.stringValue = "Копирование завершено"
-            self.progressIndicator.increment(by: 20)
+        self.changeProgress(withText: "Копирование завершено", toProgress: 20)
+        
+    }
+    
+    func deleteFileAtPath (_ file: String) {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: file) {
+            do {
+                try fileManager.removeItem(atPath: file)
+            } catch let error as NSError {
+                print(error)
+            }
         }
     }
 
@@ -234,6 +248,13 @@ class ProgressVC: NSViewController {
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 NSApplication.shared.terminate(self)
             }
+        }
+    }
+    
+    func changeProgress (withText: String, toProgress: Double) {
+        DispatchQueue.main.async {
+            self.statusLabel.stringValue = withText
+            self.progressIndicator.increment(by: toProgress)
         }
     }
 }

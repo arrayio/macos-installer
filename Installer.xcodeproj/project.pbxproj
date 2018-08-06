@@ -20,13 +20,13 @@
 		A757F2BB2100C1420049AE99 /* fileS.sig in Resources */ = {isa = PBXBuildFile; fileRef = A757F2BA2100C1420049AE99 /* fileS.sig */; };
 		A757F2BE2100D6350049AE99 /* VerifySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = A757F2BD2100D6350049AE99 /* VerifySigning.m */; };
 		A757F2C021022D0E0049AE99 /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = A757F2BF21022D0D0049AE99 /* License.html */; };
-		A7AE17D82105E58F0086343D /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE17D72105E58F0086343D /* Shell.swift */; };
 		A7AE17DA2105EADA0086343D /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = A7AE17D92105EADA0086343D /* Script.sh */; };
 		A7AE17FC210B50DE0086343D /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE17FB210B50DE0086343D /* LanguageManager.swift */; };
 		A7DE66B220F8D25200746EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE66B120F8D25200746EE0 /* AppDelegate.swift */; };
 		A7DE66B620F8D25400746EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DE66B520F8D25400746EE0 /* Assets.xcassets */; };
 		A7DE66B920F8D25400746EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DE66B720F8D25400746EE0 /* Main.storyboard */; };
 		A7DE66C220F8DCC800746EE0 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE66C120F8DCC800746EE0 /* ContainerVC.swift */; };
+		A7F96ED421186DCD002D9078 /* NameStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F96ED321186DCD002D9078 /* NameStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,6 @@
 		A757F2BC2100D6340049AE99 /* VerifySigning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifySigning.h; sourceTree = "<group>"; };
 		A757F2BD2100D6350049AE99 /* VerifySigning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifySigning.m; sourceTree = "<group>"; };
 		A757F2BF21022D0D0049AE99 /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = License.html; sourceTree = "<group>"; };
-		A7AE17D72105E58F0086343D /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		A7AE17D92105EADA0086343D /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 		A7AE17FB210B50DE0086343D /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		A7DE66AE20F8D25200746EE0 /* Installer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Installer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +57,7 @@
 		A7DE66BA20F8D25400746EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7DE66BB20F8D25400746EE0 /* Installer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Installer.entitlements; sourceTree = "<group>"; };
 		A7DE66C120F8DCC800746EE0 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		A7F96ED321186DCD002D9078 /* NameStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameStorage.swift; sourceTree = "<group>"; };
 		C8DC292E1F969C59552384F9 /* Pods_Installer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Installer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB42D04924269F4F63C525E9 /* Pods-Installer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Installer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Installer/Pods-Installer.debug.xcconfig"; sourceTree = "<group>"; };
 		EAEA76E138AB54C28504BDCD /* Pods-Installer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Installer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Installer/Pods-Installer.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,12 +111,12 @@
 				A7DE66B120F8D25200746EE0 /* AppDelegate.swift */,
 				A716D12220FCA641001998D7 /* WindowController.swift */,
 				A716D12420FCA68D001998D7 /* Loader.swift */,
+				A7F96ED321186DCD002D9078 /* NameStorage.swift */,
 				A716D10A20FC9C41001998D7 /* LicenseVC.swift */,
 				A716D11420FCA0C7001998D7 /* ProgressVC.swift */,
 				A716D11E20FCA22F001998D7 /* Config.swift */,
 				A716D12020FCA434001998D7 /* l18n.swift */,
 				A757F2B2210092F60049AE99 /* Array+Extension.swift */,
-				A7AE17D72105E58F0086343D /* Shell.swift */,
 				A7AE17FB210B50DE0086343D /* LanguageManager.swift */,
 				A757F2BF21022D0D0049AE99 /* License.html */,
 				A716D10E20FC9E8F001998D7 /* config.json */,
@@ -278,11 +278,11 @@
 				A7DE66C220F8DCC800746EE0 /* ContainerVC.swift in Sources */,
 				A716D10B20FC9C41001998D7 /* LicenseVC.swift in Sources */,
 				A7AE17FC210B50DE0086343D /* LanguageManager.swift in Sources */,
+				A7F96ED421186DCD002D9078 /* NameStorage.swift in Sources */,
 				A7DE66B220F8D25200746EE0 /* AppDelegate.swift in Sources */,
 				A757F2B3210092F60049AE99 /* Array+Extension.swift in Sources */,
 				A716D12320FCA641001998D7 /* WindowController.swift in Sources */,
 				A716D11520FCA0C7001998D7 /* ProgressVC.swift in Sources */,
-				A7AE17D82105E58F0086343D /* Shell.swift in Sources */,
 				A716D11F20FCA22F001998D7 /* Config.swift in Sources */,
 				A716D12520FCA68D001998D7 /* Loader.swift in Sources */,
 				A716D12120FCA434001998D7 /* l18n.swift in Sources */,

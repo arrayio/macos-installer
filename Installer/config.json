@@ -8,5 +8,5 @@
     "licenseFile": {"en": "License.html"},
     "script": "postinstall.js",
     "gpgKey": "./array.gpg",
-    "downloadLinks": ["https://github.com/rumkin/bake/archive/v0.15.1.tar.gz"]
+    "downloadLinks": ["https://github.com/arrayio/macos-installer/releases/download/v0.1/hello_world.tar.gz"]
 }

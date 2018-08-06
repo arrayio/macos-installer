@@ -13,12 +13,7 @@
     + (BOOL)isVerifyFile:(NSData *)fileData withSignatureData:(NSData *)signatureData withKeys:(NSArray<PGPKey *> *)keys {
         NSError *error = nil;
         BOOL isVerify = [ObjectivePGP verify:fileData withSignature:signatureData usingKeys:keys passphraseForKey:nil error:&error];
-        NSLog(@"is verify %i %@", isVerify, error);
-        if (error == nil) {
-            return true;
-        } else {
-            return false;
-        }
+        return isVerify;
     }
 
 @end
