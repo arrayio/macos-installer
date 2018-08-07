@@ -143,7 +143,7 @@ class ProgressVC: NSViewController {
                         self.statusLabel.stringValue = "Проверка подписи"
                     }
                     let bundle = Bundle.main
-                    let path = bundle.path(forResource: "key", ofType: "asc")
+                    let path = bundle.path(forResource: Loader.shared.config.gpgKey, ofType: nil)
                     let key = try! ObjectivePGP.readKeys(fromPath: path!)
                     print(key)
                     
@@ -160,6 +160,8 @@ class ProgressVC: NSViewController {
                     if (isVerify) {
                         self.copyAppToApplication()
                     } else {
+                        self.deleteFileAtPath(files.path)
+                        self.deleteFileAtPath(fileURL.path)
                         self.errorReadingResults(question: "Ошибка", text: "Ошибка в проверке подписи")
                     }
                 case .failure(let error):
@@ -192,8 +194,10 @@ class ProgressVC: NSViewController {
         print(enumerator)
         let filePaths = enumerator?.allObjects as! [String]
         let appFilePaths = filePaths.filter{$0.contains(kEXTENSION)}
+        var isContainsApps = false
         for appFilePath in appFilePaths{
             if String(appFilePath.suffix(4)) == kEXTENSION {
+                isContainsApps = true
                 var fullNameArr = appFilePath.components(separatedBy: "/")
                 let appFilePathNew = fullNameArr[fullNameArr.count-1]
                 NameStorage.shared.data.append(appFilePathNew)
@@ -217,6 +221,9 @@ class ProgressVC: NSViewController {
                 }
                 print(destURL)
             }
+        }
+        if !isContainsApps {
+            self.errorReadingResults(question: "Ошибка", text: "Архив не содержит приложений")
         }
         self.changeProgress(withText: "Копирование завершено", toProgress: 20)
         

@@ -53,9 +53,6 @@
                                         </menuItem>
                                     </items>
                                 </menu>
-                                <connections>
-                                    <binding destination="lxa-J1-8Ch" name="font" keyPath="values" id="OVL-Dg-fe5"/>
-                                </connections>
                             </menuItem>
                             <menuItem title="Edit" id="5QF-Oa-p0T">
                                 <modifierMask key="keyEquivalentModifierMask"/>

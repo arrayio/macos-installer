@@ -17,7 +17,6 @@
 		A716D12520FCA68D001998D7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12420FCA68D001998D7 /* Loader.swift */; };
 		A757F2B3210092F60049AE99 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A757F2B2210092F60049AE99 /* Array+Extension.swift */; };
 		A757F2B92100B3B10049AE99 /* key.asc in Resources */ = {isa = PBXBuildFile; fileRef = A757F2B82100B3B10049AE99 /* key.asc */; };
-		A757F2BB2100C1420049AE99 /* fileS.sig in Resources */ = {isa = PBXBuildFile; fileRef = A757F2BA2100C1420049AE99 /* fileS.sig */; };
 		A757F2BE2100D6350049AE99 /* VerifySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = A757F2BD2100D6350049AE99 /* VerifySigning.m */; };
 		A757F2C021022D0E0049AE99 /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = A757F2BF21022D0D0049AE99 /* License.html */; };
 		A7AE17DA2105EADA0086343D /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = A7AE17D92105EADA0086343D /* Script.sh */; };
@@ -44,7 +43,6 @@
 		A757F2B2210092F60049AE99 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		A757F2B42100A4C70049AE99 /* Installer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Installer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A757F2B82100B3B10049AE99 /* key.asc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.asc; sourceTree = "<group>"; };
-		A757F2BA2100C1420049AE99 /* fileS.sig */ = {isa = PBXFileReference; lastKnownFileType = text; path = fileS.sig; sourceTree = "<group>"; };
 		A757F2BC2100D6340049AE99 /* VerifySigning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifySigning.h; sourceTree = "<group>"; };
 		A757F2BD2100D6350049AE99 /* VerifySigning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifySigning.m; sourceTree = "<group>"; };
 		A757F2BF21022D0D0049AE99 /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = License.html; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				A757F2BF21022D0D0049AE99 /* License.html */,
 				A716D10E20FC9E8F001998D7 /* config.json */,
 				A757F2B82100B3B10049AE99 /* key.asc */,
-				A757F2BA2100C1420049AE99 /* fileS.sig */,
 				A7DE66B520F8D25400746EE0 /* Assets.xcassets */,
 				A7DE66B720F8D25400746EE0 /* Main.storyboard */,
 				A7DE66BA20F8D25400746EE0 /* Info.plist */,
@@ -213,7 +210,6 @@
 				A757F2C021022D0E0049AE99 /* License.html in Resources */,
 				A7DE66B620F8D25400746EE0 /* Assets.xcassets in Resources */,
 				A716D10F20FC9E8F001998D7 /* config.json in Resources */,
-				A757F2BB2100C1420049AE99 /* fileS.sig in Resources */,
 				A7DE66B920F8D25400746EE0 /* Main.storyboard in Resources */,
 				A757F2B92100B3B10049AE99 /* key.asc in Resources */,
 				A7AE17DA2105EADA0086343D /* Script.sh in Resources */,

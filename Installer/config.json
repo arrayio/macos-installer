@@ -7,6 +7,6 @@
     "description": {"en": "Array.io is the best software created by human ever"},
     "licenseFile": {"en": "License.html"},
     "script": "postinstall.js",
-    "gpgKey": "./array.gpg",
+    "gpgKey": "key.asc",
     "downloadLinks": ["https://github.com/arrayio/macos-installer/releases/download/v0.1/hello_world.tar.gz"]
 }
