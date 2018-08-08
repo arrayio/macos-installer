@@ -15,6 +15,9 @@
 		A716D12120FCA434001998D7 /* l18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12020FCA434001998D7 /* l18n.swift */; };
 		A716D12320FCA641001998D7 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12220FCA641001998D7 /* WindowController.swift */; };
 		A716D12520FCA68D001998D7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12420FCA68D001998D7 /* Loader.swift */; };
+		A75637A42119CFF000FDB9D6 /* FinalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75637A32119CFF000FDB9D6 /* FinalVC.swift */; };
+		A75637A8211AFEF700FDB9D6 /* FinalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75637A7211AFEF700FDB9D6 /* FinalCell.swift */; };
+		A75637AA211B033C00FDB9D6 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75637A9211B033C00FDB9D6 /* NotificationExtension.swift */; };
 		A757F2B3210092F60049AE99 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A757F2B2210092F60049AE99 /* Array+Extension.swift */; };
 		A757F2B92100B3B10049AE99 /* key.asc in Resources */ = {isa = PBXBuildFile; fileRef = A757F2B82100B3B10049AE99 /* key.asc */; };
 		A757F2BE2100D6350049AE99 /* VerifySigning.m in Sources */ = {isa = PBXBuildFile; fileRef = A757F2BD2100D6350049AE99 /* VerifySigning.m */; };
@@ -40,6 +43,9 @@
 		A716D12020FCA434001998D7 /* l18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = l18n.swift; sourceTree = "<group>"; };
 		A716D12220FCA641001998D7 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		A716D12420FCA68D001998D7 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		A75637A32119CFF000FDB9D6 /* FinalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalVC.swift; sourceTree = "<group>"; };
+		A75637A7211AFEF700FDB9D6 /* FinalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalCell.swift; sourceTree = "<group>"; };
+		A75637A9211B033C00FDB9D6 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		A757F2B2210092F60049AE99 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		A757F2B42100A4C70049AE99 /* Installer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Installer-Bridging-Header.h"; sourceTree = "<group>"; };
 		A757F2B82100B3B10049AE99 /* key.asc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.asc; sourceTree = "<group>"; };
@@ -112,6 +118,8 @@
 				A7F96ED321186DCD002D9078 /* NameStorage.swift */,
 				A716D10A20FC9C41001998D7 /* LicenseVC.swift */,
 				A716D11420FCA0C7001998D7 /* ProgressVC.swift */,
+				A75637A32119CFF000FDB9D6 /* FinalVC.swift */,
+				A75637A7211AFEF700FDB9D6 /* FinalCell.swift */,
 				A716D11E20FCA22F001998D7 /* Config.swift */,
 				A716D12020FCA434001998D7 /* l18n.swift */,
 				A757F2B2210092F60049AE99 /* Array+Extension.swift */,
@@ -124,6 +132,7 @@
 				A7DE66BA20F8D25400746EE0 /* Info.plist */,
 				A7DE66BB20F8D25400746EE0 /* Installer.entitlements */,
 				A7DE66C120F8DCC800746EE0 /* ContainerVC.swift */,
+				A75637A9211B033C00FDB9D6 /* NotificationExtension.swift */,
 				A757F2BC2100D6340049AE99 /* VerifySigning.h */,
 				A757F2BD2100D6350049AE99 /* VerifySigning.m */,
 				A757F2B42100A4C70049AE99 /* Installer-Bridging-Header.h */,
@@ -270,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A75637AA211B033C00FDB9D6 /* NotificationExtension.swift in Sources */,
+				A75637A42119CFF000FDB9D6 /* FinalVC.swift in Sources */,
 				A757F2BE2100D6350049AE99 /* VerifySigning.m in Sources */,
 				A7DE66C220F8DCC800746EE0 /* ContainerVC.swift in Sources */,
 				A716D10B20FC9C41001998D7 /* LicenseVC.swift in Sources */,
@@ -281,6 +292,7 @@
 				A716D11520FCA0C7001998D7 /* ProgressVC.swift in Sources */,
 				A716D11F20FCA22F001998D7 /* Config.swift in Sources */,
 				A716D12520FCA68D001998D7 /* Loader.swift in Sources */,
+				A75637A8211AFEF700FDB9D6 /* FinalCell.swift in Sources */,
 				A716D12120FCA434001998D7 /* l18n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

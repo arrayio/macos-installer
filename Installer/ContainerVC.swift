@@ -13,7 +13,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
     @IBOutlet weak var licenseViewButtons: NSView!
     @IBOutlet weak var continueButton: NSButton!
     
-    var viewArray = ["one", "two", "three"]
+    var viewArray = ["one", "two", "three", "four"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         self.arrangedObjects = viewArray
         self.transitionStyle = .horizontalStrip
         self.licenseViewButtons.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateForward(_:)), name: .navigationForward, object: nil)
     }
     
     override func viewDidAppear() {
@@ -29,15 +30,21 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         self.view.window?.title = (Loader.shared.config.title?.en)!
     }
     
+    override func scrollWheel(with event: NSEvent) {
+        
+    }
+    
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
         print(identifier.rawValue)
         switch identifier.rawValue {
         case "one":
             return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "WelcomeVC")) as! NSViewController
         case "two":
-            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "LicenseVC")) as! NSViewController
+            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "LicenseVC")) as! LicenseVC
         case "three":
-            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ProgressVC")) as! NSViewController
+            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ProgressVC")) as! ProgressVC
+        case "four":
+            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "FinalVC")) as! FinalVC
         default:
             return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: identifier.rawValue)) as! NSViewController
         }

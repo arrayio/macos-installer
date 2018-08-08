@@ -11,9 +11,14 @@
 @implementation VerifySigning
     
     + (BOOL)isVerifyFile:(NSData *)fileData withSignatureData:(NSData *)signatureData withKeys:(NSArray<PGPKey *> *)keys {
-        NSError *error = nil;
-        BOOL isVerify = [ObjectivePGP verify:fileData withSignature:signatureData usingKeys:keys passphraseForKey:nil error:&error];
-        return isVerify;
+        @try {
+            NSError *error = nil;
+            BOOL isVerify = [ObjectivePGP verify:fileData withSignature:signatureData usingKeys:keys passphraseForKey:nil error:&error];
+            return isVerify;
+        } @catch (NSException *exc) {
+            NSLog(@"%@", exc);
+            return false;
+        }
     }
 
 @end

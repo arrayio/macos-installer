@@ -194,10 +194,8 @@ class ProgressVC: NSViewController {
         print(enumerator)
         let filePaths = enumerator?.allObjects as! [String]
         let appFilePaths = filePaths.filter{$0.contains(kEXTENSION)}
-        var isContainsApps = false
         for appFilePath in appFilePaths{
             if String(appFilePath.suffix(4)) == kEXTENSION {
-                isContainsApps = true
                 var fullNameArr = appFilePath.components(separatedBy: "/")
                 let appFilePathNew = fullNameArr[fullNameArr.count-1]
                 NameStorage.shared.data.append(appFilePathNew)
@@ -219,14 +217,17 @@ class ProgressVC: NSViewController {
                         print("Ooops! Something went wrong: \(error)")
                     }
                 }
+                self.deleteFileAtPath(fileURL.appendingPathComponent(appFilePath).path)
                 print(destURL)
             }
         }
-        if !isContainsApps {
+        if NameStorage.shared.data.count == 0 {
             self.errorReadingResults(question: "Ошибка", text: "Архив не содержит приложений")
+        } else {
+            print(NameStorage.shared.data)
         }
         self.changeProgress(withText: "Копирование завершено", toProgress: 20)
-        
+        NotificationCenter.default.post(name: .navigationForward, object: nil)
     }
     
     func deleteFileAtPath (_ file: String) {
