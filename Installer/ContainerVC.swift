@@ -12,6 +12,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
     
     @IBOutlet weak var licenseViewButtons: NSView!
     @IBOutlet weak var continueButton: NSButton!
+    @IBOutlet weak var closeButton: NSButton!
     
     var viewArray = ["one", "two", "three", "four"]
 
@@ -21,6 +22,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         self.arrangedObjects = viewArray
         self.transitionStyle = .horizontalStrip
         self.licenseViewButtons.isHidden = true
+        self.closeButton.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(navigateForward(_:)), name: .navigationForward, object: nil)
     }
     
@@ -64,17 +66,28 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         case 0:
             self.continueButton.isHidden = false
             self.licenseViewButtons.isHidden = true
+            self.closeButton.isHidden = true
         case 1:
             self.continueButton.isHidden = true
             self.licenseViewButtons.isHidden = false
+            self.closeButton.isHidden = true
         case 2:
             self.continueButton.isHidden = true
             self.licenseViewButtons.isHidden = true
+            self.closeButton.isHidden = true
+        case 3:
+            self.continueButton.isHidden = true
+            self.licenseViewButtons.isHidden = true
+            self.closeButton.isHidden = false
         default:
             break
         }
     }
     
     @IBAction func declineAction(_ sender: Any) {
+        NSApplication.shared.terminate(self)
+    }
+    @IBAction func closeAction(_ sender: Any) {
+        NSApplication.shared.terminate(self)
     }
 }

@@ -25,8 +25,7 @@ class FinalVC: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FinalCell"), owner: self) as! FinalCell
-        cell.textField?.stringValue = NameStorage.shared.data[row]
-        cell.openButton.title = NameStorage.shared.data[row]
+        cell.openButton.title = "Run " + String(NameStorage.shared.data[row].dropLast(4))
         cell.path = NameStorage.shared.data[row]
         return cell
     }

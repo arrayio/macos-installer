@@ -6,59 +6,59 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		IQue8E5Tf8xsFwKJlF0bcYGBFyk=
+		8JssutOHgjUK2UQcs4srLEISAAg=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/FinalVC.nib</key>
 		<data>
-		jSXCxWMvKbS7Gst1JVctnISZ/6Y=
+		QZsjJ+zEKbOkyjgBYeN9eQV+TGw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		z/95x4lKm9vayzPY87YQH62Bdys=
+		rZqlxnzyIweBgx5NFXi95cYH8Vw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/LicenseVC.nib</key>
 		<data>
-		Nkn2oisBdcKmSXZPDEDYiA1dcPs=
+		v5ydqOq4+kMFBg1o9rhWXtQK9c0=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		BsM8L6PpLI2FaT7roPRleFaPWGI=
+		LfICYXNlG7308lnNGI+qF3/wNBM=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NF6-Ut-Hla-view-Yuq-Qy-G3Q.nib</key>
 		<data>
-		zE/IOZHvUsh3q2S1tz2o2yT3I5U=
+		alGAzfKkVAiEP1el9fuJ07dQu1c=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-NP5-n8-6fS.nib</key>
 		<data>
-		Q4PCRlQmC/UuN+dzDH4TfEhoWBE=
+		hK1Y2T5PnYyM8o/4CA76c+ctR4c=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/ProgressVC.nib</key>
 		<data>
-		dpeyEfbPDjaIu5g+nzr0YH6yhZ8=
+		TOuACAfkL/5Qca+fFd8suc+gOg0=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/WelcomeVC.nib</key>
 		<data>
-		z3qGU7k8kwFRqr4wOLJFTnzb/NM=
+		nKJX++X3GVSLyfh6MBnzSEhnN0U=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Xbk-3y-Rhe-view-0z2-eO-qic.nib</key>
 		<data>
-		ih/7Loa+uxcHgjFRQmKmYGYSq3I=
+		zBP33HHWpNoVG3idUeYPWGwqJa0=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		5l0Oe1bHcUqnIhEn9EOgCPBH5Y0=
+		6+0gDf+s7+dzSKN9VB/Sn4UTzGw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/YYl-0L-SSK-view-LkJ-ip-9UW.nib</key>
 		<data>
-		g5Pva7tqX9aLOFD4gZaPpZC7zrc=
+		zZXGL3Nukwba0aWcmKKYGhyMK/E=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/fy5-1N-Vif-view-Irl-qL-mvy.nib</key>
 		<data>
-		ztQSMaxGpBxOOgTdayuXPdaHhkU=
+		rsWVUNZkjkBgdqva07Kd93M/wbQ=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/vUg-HU-E83-view-cSA-2M-zYq.nib</key>
 		<data>
-		6Casi6GxOExhvb95cNCK16bRGTg=
+		Y8q4ucFOvgpdyLpJHJfqVCne9jA=
 		</data>
 		<key>Resources/License.html</key>
 		<data>
@@ -83,7 +83,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			sluzejz7YKhc9ZC+xVpDtwphnn0=
+			mL933o70+CSux8n9pwLkiWdmz0I=
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "org.cocoapods.Alamofire" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "8YBKQD6YZD")</string>
@@ -92,7 +92,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Z+qtUvagbps5uIKv30S0GGKi5VU=
+			gBMvfYAdi72TLYNx/w8EpsE0XEs=
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "org.cocoapods.ObjectMapper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "8YBKQD6YZD")</string>
@@ -245,7 +245,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			3jxDl6t9y+pEqflgil2Igdn2qdo=
+			LRYV/NngAMBRNWF5KY1B84qe7uU=
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "org.cocoapods.tarkit" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "8YBKQD6YZD")</string>
@@ -254,98 +254,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PixvCO5vluCmwcbVDbisumOLPWcRL6hJNGszkYluhK0=
+			tw3q0OHTfqVxDPG4u85WtOHV7+HxisRv7/kn0zHgIY4=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/FinalVC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5UfC8iyOv7OrqoMz1MbRvaK/c52tsNIF4kkrF8q7X5g=
+			bBtYgpouL74jnO86xwPMk/asc0MNQ0qFDjMbyyEWEg8=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z3dfFaM/Mzla1+74Q8MV/WTW3uDyLKNfQqubqXyG3j0=
+			zX5/PHAm7QFL1NpuRmMssZNCFSQVNxIdaKalAhTciy8=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/LicenseVC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UeTZSeHSyMacBwoLYlsrfx04Wbf8TmFNOlEvnCmYAV4=
+			u+lhPwlhwpB0/yb3G55Y2sLjnBvvLlRE6OQePQWl2u4=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			o74aUzSZitlHlWOVswjy64r90MRpYGeVd1zSxawm/Wg=
+			NVCEBqp5cdcULCJy/lkdhYJIVRgoRHG19rv5O/foSFc=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NF6-Ut-Hla-view-Yuq-Qy-G3Q.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			B+ObDVIeO5xZS/gidQ1miZ4SclophRFZSv/sk4oacj0=
+			MTjK+HmSkgzm0JYCydKjAPyBCHllUGZMnVlzx1pEMjI=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-NP5-n8-6fS.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L3ITmZjBq7AJtc0odadrdbM9JrzE1nPu/auNpGoZxeo=
+			WPx5NyuCluHFz3xfqzlM9Ab2cP6sShM6O3UJ03Q5m/0=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/ProgressVC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yWVQcPZXWcnFqHZiww2fJWdeTgVQDxeg1eNYfwMc8Ec=
+			idx5XUGB1Pj7dLWg5cKijAKeujAK1ye86pk0b2LTGeM=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/WelcomeVC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+jevwQGsCN0tz1hxzZdwxJ64p9L6qyQd71LwUzCoJ5A=
+			k8I4fj5+/CwH7v4DfYjcKmehhSH7yB73crJ0aZB7+pw=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Xbk-3y-Rhe-view-0z2-eO-qic.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			e+YuUQUQPajYyIE6ZsxmllR2d5P9PXhs/rVABs/8518=
+			2qNt4RaoMFlRbni6uEMB5+2Ebw0n6EuhOBd13Txtdgg=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0XBmYbi268TBvI9yUvHJrnDIPGf+3jrgTtt/V5zeuac=
+			CAsoNHEQMh9X0HH/yGj2oyCf6VkBWqsEnE/vlUg7jyM=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/YYl-0L-SSK-view-LkJ-ip-9UW.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EAZAGQ/0HbdStINYzvs1VjGtxPr7LGJ17b4DsoaT0wo=
+			uXYducYBaqbzyhtXf0JiW87wDQ+tx6XAmUD18JMVD1g=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/fy5-1N-Vif-view-Irl-qL-mvy.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6RCJUZFtf/pEyG6u7NSEltTkk3vJxZ/3lzv4WED1Oe0=
+			/0mRnuNeSZAnbclFNh8bapvjUrpmjtuqk4TNqPEyn3A=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/vUg-HU-E83-view-cSA-2M-zYq.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yrA8GRV/xH3XGyzMMxaEduR08ZiOvu8xlMDoWcvxQY0=
+			hKQVk12v7gydnk4PU37llZSDB0IeRwn8re9jbErKr1A=
 			</data>
 		</dict>
 		<key>Resources/License.html</key>

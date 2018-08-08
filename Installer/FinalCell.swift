@@ -29,7 +29,6 @@ class FinalCell: NSTableCellView {
         script?.executeAndReturnError(&errorInfo)
         if let error = errorInfo {
             print("ERROR: \(error)")
-//            self.errorReadingResults(question: "Ошибка", text: "Ошибка при разархивировании")
         }
     }
 }
