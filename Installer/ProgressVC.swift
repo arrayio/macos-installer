@@ -19,8 +19,11 @@ class ProgressVC: NSViewController {
     
     private var primaryLink = ""
 
+    @IBOutlet weak var startDownloadButton: NSButton!
+    @IBOutlet weak var partStatusLabel: NSTextField!
     @IBOutlet weak var statusLabel: NSTextField!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var partProgressIndicator: NSProgressIndicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,8 @@ class ProgressVC: NSViewController {
 //                    if (success) {
 //                        // User authenticated successfully, take appropriate action
 //                        print("Success")
-                        self.primaryLink = self.generateLink()
-                        self.loadSignature()
+//                        self.primaryLink = self.generateLink()
+//                        self.loadSignature()
 //                    } else {
 //                        // User did not authenticate successfully, look at error and take appropriate action
 //                        print("Failure")
@@ -86,9 +89,11 @@ class ProgressVC: NSViewController {
     func loadSignature() {
         DispatchQueue.main.async {
             self.statusLabel.stringValue = "Скачивание подписи"
+            self.partStatusLabel.stringValue = "Скачивание"
         }
         Alamofire.download(URL(string: primaryLink + ".sig")!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.sig"))
             .downloadProgress { progress in
+                self.partProgressIndicator.doubleValue =  progress.fractionCompleted * 100.0
                 print("Download Progress: \(progress.fractionCompleted)")
             }
             .responseData { response in
@@ -115,12 +120,15 @@ class ProgressVC: NSViewController {
     
     func loadArchive() {
         print(primaryLink)
+        self.partProgressIndicator.doubleValue = 0.0
         DispatchQueue.main.async {
             self.statusLabel.stringValue = "Скачивание архива"
+            self.partStatusLabel.stringValue = "Скачивание"
         }
         Alamofire.download(URL(string: primaryLink)!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.tar.gz"))
             .downloadProgress { progress in
                 print("Download Progress: \(progress.fractionCompleted)")
+                self.partProgressIndicator.doubleValue =  progress.fractionCompleted * 100.0
             }
             .responseData { response in
                 print(response.result.value)
@@ -265,4 +273,11 @@ class ProgressVC: NSViewController {
             self.progressIndicator.increment(by: toProgress)
         }
     }
+    
+    @IBAction func startDownloadAction(_ sender: Any) {
+        self.primaryLink = self.generateLink()
+        self.startDownloadButton.isHidden = true
+        self.loadSignature()
+    }
+    
 }

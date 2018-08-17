@@ -584,16 +584,46 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32i-ao-oSP">
                                 <rect key="frame" x="73" y="112" width="636" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="ses-UM-gv7">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="ses-UM-gv7">
                                     <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="JaP-LE-k7w">
+                                <rect key="frame" x="75" y="138" width="632" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oLt-c8-2zV">
+                                <rect key="frame" x="73" y="166" width="636" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="xWd-wB-LuC">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Apl-M7-uMW">
+                                <rect key="frame" x="342" y="299" width="99" height="23"/>
+                                <buttonCell key="cell" type="smallSquare" title="Start download" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FPr-EZ-Q0O">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startDownloadAction:" target="Xbk-3y-Rhe" id="hgv-xz-qIe"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Apl-M7-uMW" firstAttribute="top" secondItem="0z2-eO-qic" secondAttribute="top" constant="186" id="TLs-hB-NN8"/>
+                            <constraint firstItem="Apl-M7-uMW" firstAttribute="centerX" secondItem="0z2-eO-qic" secondAttribute="centerX" id="XCK-Gk-BuL"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="partProgressIndicator" destination="JaP-LE-k7w" id="uoq-MN-MPz"/>
+                        <outlet property="partStatusLabel" destination="oLt-c8-2zV" id="1KD-SQ-HQx"/>
                         <outlet property="progressIndicator" destination="qeH-K8-KyO" id="vzK-dP-KWH"/>
+                        <outlet property="startDownloadButton" destination="Apl-M7-uMW" id="vfg-th-2Mc"/>
                         <outlet property="statusLabel" destination="32i-ao-oSP" id="b3O-Xg-ne0"/>
                     </connections>
                 </viewController>
