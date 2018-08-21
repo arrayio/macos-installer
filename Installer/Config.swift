@@ -16,9 +16,9 @@ class Config: Mappable {
     var icon: String?
     var script: String?
     var gpgKey: String?
-    var title: l18n?
-    var descr: l18n?
-    var license: l18n?
+    var title: [String : String]?
+    var descr: [String : String]?
+    var license: [String : String]?
     var downloadLinks: [String]?
     
     required init?(map: Map) {

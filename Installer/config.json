@@ -3,7 +3,7 @@
     "name": "Array.io",
     "image": "./image.png",
     "icon": "./icon.png",
-    "title": {"en": "Install Array.io"},
+    "title": {"en": "Install Array.io", "ru": "Установщик Array.io", "ru-RU": "Установшик Array.io ru"},
     "description": {"en": "Array.io is the best software created by human ever"},
     "licenseFile": {"en": "License.html"},
     "script": "postinstall.js",

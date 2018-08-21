@@ -428,11 +428,11 @@
             </objects>
             <point key="canvasLocation" x="75.5" y="230.5"/>
         </scene>
-        <!--View Controller-->
+        <!--FirstVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="WelcomeVC" id="XfG-lQ-9wD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVC" id="XfG-lQ-9wD" customClass="FirstVC" customModule="Installer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="782" height="507"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -465,11 +465,11 @@
             </objects>
             <point key="canvasLocation" x="914" y="231"/>
         </scene>
-        <!--View Controller-->
+        <!--FirstVC-->
         <scene sceneID="Vrg-Fr-daR">
             <objects>
                 <customObject id="vKn-hC-cQB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="WelcomeVC" id="YYl-0L-SSK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstVC" id="YYl-0L-SSK" customClass="FirstVC" customModule="Installer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="LkJ-ip-9UW">
                         <rect key="frame" x="0.0" y="0.0" width="782" height="507"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -483,8 +483,11 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Array_logo_dark_bg_p" id="EaM-7y-HoB"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TmJ-lC-18u">
-                                <rect key="frame" x="207" y="108" width="368" height="18"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="To install Array.io 1.0.0 on your computer, click Continue." id="kuA-zK-hW6">
+                                <rect key="frame" x="18" y="108" width="746" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="742" id="Kx1-RM-e1C"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="To install Array.io 1.0.0 on your computer, click Continue." id="kuA-zK-hW6">
                                     <font key="font" metaFont="system" size="14"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -498,6 +501,9 @@
                             <constraint firstItem="FsS-ST-n7z" firstAttribute="centerX" secondItem="LkJ-ip-9UW" secondAttribute="centerX" id="sep-P2-mNN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descrField" destination="TmJ-lC-18u" id="4Jb-59-Dc9"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="914" y="230.5"/>

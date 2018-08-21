@@ -19,7 +19,7 @@ class LicenseVC: NSViewController {
         super.viewDidLoad()
         let bundle = Bundle.main
         Loader.shared.loadConfig()
-        let filePath = bundle.path(forResource: Loader.shared.config.license?.en, ofType: nil)
+        let filePath = bundle.path(forResource: Language().getString(array: Loader.shared.config.license ?? [String : String]()), ofType: nil)
         licenseWebView.mainFrameURL = filePath
     }
     

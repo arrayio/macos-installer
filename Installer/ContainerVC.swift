@@ -29,7 +29,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
     override func viewDidAppear() {
         super.viewDidAppear()
         Loader.shared.loadConfig()
-        self.view.window?.title = (Loader.shared.config.title?.en)!
+        self.view.window?.title = Language().getString(array: Loader.shared.config.title ?? [String : String]())
     }
     
     override func scrollWheel(with event: NSEvent) {
@@ -40,7 +40,7 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
         print(identifier.rawValue)
         switch identifier.rawValue {
         case "one":
-            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "WelcomeVC")) as! NSViewController
+            return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "FirstVC")) as! FirstVC
         case "two":
             return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "LicenseVC")) as! LicenseVC
         case "three":
