@@ -16,6 +16,7 @@ import LocalAuthentication
 class ProgressVC: NSViewController {
     
     let kEXTENSION = ".app"
+    let kSEARCH_PATH_DIR: FileManager.SearchPathDirectory = .downloadsDirectory
     
     private var primaryLink = ""
 
@@ -32,7 +33,7 @@ class ProgressVC: NSViewController {
     
     func downloadFileDestination(fileName: String) -> DownloadRequest.DownloadFileDestination {
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true)[0]
+            let documentsPath = NSSearchPathForDirectoriesInDomains(self.kSEARCH_PATH_DIR, .userDomainMask, true)[0]
             let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
             let fileURL = documentsURL.appendingPathComponent(fileName)
             print(fileURL)
@@ -42,7 +43,7 @@ class ProgressVC: NSViewController {
     }
     
     func untar () {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true)[0]
+        let documentsPath = NSSearchPathForDirectoriesInDomains(kSEARCH_PATH_DIR, .userDomainMask, true)[0]
         let dataPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")")
         let filePath = dataPath.appending("/file.tar.gz")
         let toPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/application")
@@ -104,7 +105,7 @@ class ProgressVC: NSViewController {
         let key = try! ObjectivePGP.readKeys(fromPath: path!)
         print(key)
         
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true)[0]
+        let documentsPath = NSSearchPathForDirectoriesInDomains(kSEARCH_PATH_DIR, .userDomainMask, true)[0]
         let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
         let files = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.sig")
         let fileURL = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.tar.gz")
@@ -160,7 +161,7 @@ class ProgressVC: NSViewController {
     }
     
     func copyAppToApplication () {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.downloadsDirectory, .userDomainMask, true)[0]
+        let documentsPath = NSSearchPathForDirectoriesInDomains(kSEARCH_PATH_DIR, .userDomainMask, true)[0]
         let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
         let fileURL = documentsURL.appendingPathComponent("\(Loader.shared.config.name ?? "installer")")
 
