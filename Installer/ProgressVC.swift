@@ -238,7 +238,7 @@ class ProgressVC: NSViewController {
         let alert = NSAlert()
         alert.messageText = "alert.error".localized
         alert.informativeText = text
-        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: "alert.ok".localized)
         alert.addButton(withTitle: "alert.try_again".localized)
         alert.alertStyle = .warning
         alert.beginSheetModal(for: self.view.window!) { (modalResponse) in
