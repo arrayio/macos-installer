@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>final.run</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Открыть </string>
+	</dict>
+	<key>progress.unzipping_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Ошибка при распаковке</string>
+	</dict>
+	<key>alert.try_again</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Повторить попытку</string>
+	</dict>
+	<key>progress.copy_completed</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Копирование завершено</string>
+	</dict>
+	<key>progress.archive_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Архив не содержит приложений</string>
+	</dict>
+	<key>progress.unzipping</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Распаковка</string>
+	</dict>
+	<key>progress.downloading_archive</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Скачивание архива</string>
+	</dict>
+	<key>progress.sign_verification_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Ошибка в проверке подписи</string>
+	</dict>
+	<key>progress.sign_verification</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Проверка подписи</string>
+	</dict>
+	<key>progress.downloading_sign</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Скачивание подписи</string>
+	</dict>
+	<key>progress.downloading</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Скачивание...</string>
+	</dict>
+	<key>alert.error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Ошибка</string>
+	</dict>
+</dict>
+</plist>

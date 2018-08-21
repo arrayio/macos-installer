@@ -20,7 +20,6 @@ class LicenseVC: NSViewController {
         let bundle = Bundle.main
         Loader.shared.loadConfig()
         let filePath = bundle.path(forResource: Loader.shared.config.license?.en, ofType: nil)
-        //textView.readRTFD(fromFile: filePath!)
         licenseWebView.mainFrameURL = filePath
     }
     

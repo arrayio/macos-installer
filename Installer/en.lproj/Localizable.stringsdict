@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>final.run</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Run </string>
+	</dict>
+	<key>progress.unzipping_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Error unzipping</string>
+	</dict>
+	<key>alert.try_again</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Try again</string>
+	</dict>
+	<key>progress.copy_completed</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Copy complete</string>
+	</dict>
+	<key>progress.archive_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Archive does not contain attachments</string>
+	</dict>
+	<key>progress.unzipping</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Unzipping</string>
+	</dict>
+	<key>progress.downloading_archive</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Downloading archive</string>
+	</dict>
+	<key>progress.sign_verification_error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Error in signature verification</string>
+	</dict>
+	<key>progress.sign_verification</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Signature verification</string>
+	</dict>
+	<key>progress.downloading_sign</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Downloading signature</string>
+	</dict>
+	<key>progress.downloading</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Downloading...</string>
+	</dict>
+	<key>alert.error</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Error</string>
+	</dict>
+</dict>
+</plist>

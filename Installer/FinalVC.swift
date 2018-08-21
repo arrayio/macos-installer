@@ -16,7 +16,6 @@ class FinalVC: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do view setup here.
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -25,7 +24,7 @@ class FinalVC: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FinalCell"), owner: self) as! FinalCell
-        cell.openButton.title = "Run " + String(NameStorage.shared.data[row].dropLast(4))
+        cell.openButton.title = "final.run".localized + String(NameStorage.shared.data[row].dropLast(4))
         cell.path = NameStorage.shared.data[row]
         return cell
     }
