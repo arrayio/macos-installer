@@ -213,10 +213,9 @@ class ProgressVC: NSViewController {
         if NameStorage.shared.data.count == 0 {
             self.errorReadingResults(text: "progress.archive_error".localized)
         } else {
-            print(NameStorage.shared.data)
+            self.changeProgress(withText: "progress.copy_completed".localized, toProgress: 20)
+            NotificationCenter.default.post(name: .navigationForward, object: nil)
         }
-        self.changeProgress(withText: "progress.copy_completed".localized, toProgress: 20)
-        NotificationCenter.default.post(name: .navigationForward, object: nil)
     }
     
     func deleteFileAtPath (_ file: String) {
