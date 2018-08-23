@@ -1,6 +1,0 @@
-framework module tarkit {
-  umbrella header "tarkit-umbrella.h"
-
-  export *
-  module * { export * }
-}
