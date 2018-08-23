@@ -12,7 +12,6 @@
 		A716D11520FCA0C7001998D7 /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D11420FCA0C7001998D7 /* ProgressVC.swift */; };
 		A716D11D20FCA148001998D7 /* Pods_Installer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A716D11C20FCA148001998D7 /* Pods_Installer.framework */; };
 		A716D11F20FCA22F001998D7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D11E20FCA22F001998D7 /* Config.swift */; };
-		A716D12120FCA434001998D7 /* l18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12020FCA434001998D7 /* l18n.swift */; };
 		A716D12320FCA641001998D7 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12220FCA641001998D7 /* WindowController.swift */; };
 		A716D12520FCA68D001998D7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716D12420FCA68D001998D7 /* Loader.swift */; };
 		A75637A42119CFF000FDB9D6 /* FinalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75637A32119CFF000FDB9D6 /* FinalVC.swift */; };
@@ -26,8 +25,7 @@
 		A79A15E2212C1724002BD735 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A15E1212C1724002BD735 /* String+extension.swift */; };
 		A79A15E7212C356E002BD735 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A15E6212C356E002BD735 /* Language.swift */; };
 		A79A15E9212C3984002BD735 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A15E8212C3984002BD735 /* FirstVC.swift */; };
-		A7AE17DA2105EADA0086343D /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = A7AE17D92105EADA0086343D /* Script.sh */; };
-		A7AE17FC210B50DE0086343D /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE17FB210B50DE0086343D /* LanguageManager.swift */; };
+		A7C854F5212EB0B70066A220 /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = A7C854F4212EB0B70066A220 /* Script.sh */; };
 		A7DE66B220F8D25200746EE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE66B120F8D25200746EE0 /* AppDelegate.swift */; };
 		A7DE66B620F8D25400746EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DE66B520F8D25400746EE0 /* Assets.xcassets */; };
 		A7DE66B920F8D25400746EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DE66B720F8D25400746EE0 /* Main.storyboard */; };
@@ -44,7 +42,6 @@
 		A716D11A20FCA144001998D7 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A716D11C20FCA148001998D7 /* Pods_Installer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Installer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A716D11E20FCA22F001998D7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		A716D12020FCA434001998D7 /* l18n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = l18n.swift; sourceTree = "<group>"; };
 		A716D12220FCA641001998D7 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		A716D12420FCA68D001998D7 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		A75637A32119CFF000FDB9D6 /* FinalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalVC.swift; sourceTree = "<group>"; };
@@ -63,8 +60,7 @@
 		A79A15E5212C1AF8002BD735 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A79A15E6212C356E002BD735 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A79A15E8212C3984002BD735 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
-		A7AE17D92105EADA0086343D /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
-		A7AE17FB210B50DE0086343D /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		A7C854F4212EB0B70066A220 /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 		A7DE66AE20F8D25200746EE0 /* Installer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Installer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DE66B120F8D25200746EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7DE66B520F8D25400746EE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,13 +129,12 @@
 				A75637A32119CFF000FDB9D6 /* FinalVC.swift */,
 				A75637A7211AFEF700FDB9D6 /* FinalCell.swift */,
 				A716D11E20FCA22F001998D7 /* Config.swift */,
-				A716D12020FCA434001998D7 /* l18n.swift */,
 				A757F2B2210092F60049AE99 /* Array+Extension.swift */,
-				A7AE17FB210B50DE0086343D /* LanguageManager.swift */,
 				A79A15E1212C1724002BD735 /* String+extension.swift */,
 				A79A15E6212C356E002BD735 /* Language.swift */,
 				A757F2BF21022D0D0049AE99 /* License.html */,
 				A716D10E20FC9E8F001998D7 /* config.json */,
+				A7C854F4212EB0B70066A220 /* Script.sh */,
 				A757F2B82100B3B10049AE99 /* key.asc */,
 				A7DE66B520F8D25400746EE0 /* Assets.xcassets */,
 				A7DE66B720F8D25400746EE0 /* Main.storyboard */,
@@ -150,7 +145,6 @@
 				A757F2BC2100D6340049AE99 /* VerifySigning.h */,
 				A757F2BD2100D6350049AE99 /* VerifySigning.m */,
 				A757F2B42100A4C70049AE99 /* Installer-Bridging-Header.h */,
-				A7AE17D92105EADA0086343D /* Script.sh */,
 				A79A15DF212C1649002BD735 /* Localizable.stringsdict */,
 			);
 			path = Installer;
@@ -235,9 +229,9 @@
 				A757F2C021022D0E0049AE99 /* License.html in Resources */,
 				A7DE66B620F8D25400746EE0 /* Assets.xcassets in Resources */,
 				A716D10F20FC9E8F001998D7 /* config.json in Resources */,
+				A7C854F5212EB0B70066A220 /* Script.sh in Resources */,
 				A7DE66B920F8D25400746EE0 /* Main.storyboard in Resources */,
 				A757F2B92100B3B10049AE99 /* key.asc in Resources */,
-				A7AE17DA2105EADA0086343D /* Script.sh in Resources */,
 				A79A15DD212C1649002BD735 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +298,6 @@
 				A7DE66C220F8DCC800746EE0 /* ContainerVC.swift in Sources */,
 				A716D10B20FC9C41001998D7 /* LicenseVC.swift in Sources */,
 				A79A15E9212C3984002BD735 /* FirstVC.swift in Sources */,
-				A7AE17FC210B50DE0086343D /* LanguageManager.swift in Sources */,
 				A7F96ED421186DCD002D9078 /* NameStorage.swift in Sources */,
 				A7DE66B220F8D25200746EE0 /* AppDelegate.swift in Sources */,
 				A757F2B3210092F60049AE99 /* Array+Extension.swift in Sources */,
@@ -313,7 +306,6 @@
 				A716D11F20FCA22F001998D7 /* Config.swift in Sources */,
 				A716D12520FCA68D001998D7 /* Loader.swift in Sources */,
 				A75637A8211AFEF700FDB9D6 /* FinalCell.swift in Sources */,
-				A716D12120FCA434001998D7 /* l18n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

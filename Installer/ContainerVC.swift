@@ -37,7 +37,6 @@ class ContainerVC: NSPageController, NSPageControllerDelegate {
     }
     
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
-        print(identifier.rawValue)
         switch identifier.rawValue {
         case "one":
             return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "FirstVC")) as! FirstVC

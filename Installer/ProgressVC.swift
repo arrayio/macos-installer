@@ -36,7 +36,6 @@ class ProgressVC: NSViewController {
             let documentsPath = NSSearchPathForDirectoriesInDomains(self.kSEARCH_PATH_DIR, .userDomainMask, true)[0]
             let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
             let fileURL = documentsURL.appendingPathComponent(fileName)
-            print(fileURL)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         return destination
@@ -46,10 +45,6 @@ class ProgressVC: NSViewController {
         let documentsPath = NSSearchPathForDirectoriesInDomains(kSEARCH_PATH_DIR, .userDomainMask, true)[0]
         let dataPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")")
         let filePath = dataPath.appending("/file.tar.gz")
-        let toPath = documentsPath.appending("/\(Loader.shared.config.name ?? "installer")/application")
-        print(toPath)
-        print(dataPath)
-        
         
         let script = NSAppleScript(source: "do shell script \"cd '" + dataPath + "' && tar -xzvf '" + filePath + "'\"")
         var errorInfo: NSDictionary?
@@ -72,23 +67,12 @@ class ProgressVC: NSViewController {
         Alamofire.download(URL(string: primaryLink + ".sig")!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.sig"))
             .downloadProgress { progress in
                 self.partProgressIndicator.doubleValue =  progress.fractionCompleted * 100.0
-                print("Download Progress: \(progress.fractionCompleted)")
             }
             .responseData { response in
-                print(response.result.value)
-                print(response)
-                print(response.response)
-                print(response.request)
-                print(response.result)
-                if let data = response.result.value {
-                    print(data)
-                    //let image = UIImage(data: data)
-                }
                 switch response.result {
                 case .success:
                     self.progressIndicator.doubleValue += 20
                     self.loadArchive()
-                    print("Validation Successful")
                 case .failure(let error):
                     print(error)
                     self.errorReadingResults(text: error.localizedDescription)
@@ -103,17 +87,13 @@ class ProgressVC: NSViewController {
         let bundle = Bundle.main
         let path = bundle.path(forResource: Loader.shared.config.gpgKey, ofType: nil)
         let key = try! ObjectivePGP.readKeys(fromPath: path!)
-        print(key)
         
         let documentsPath = NSSearchPathForDirectoriesInDomains(kSEARCH_PATH_DIR, .userDomainMask, true)[0]
         let documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: true)
         let files = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.sig")
         let fileURL = documentsURL.appendingPathComponent("/\(Loader.shared.config.name ?? "installer")/file.tar.gz")
         
-        print(try! Data(contentsOf: fileURL))
-        
         let isVerify = try! VerifySigning.isVerifyFile(Data(contentsOf: fileURL), withSignatureData: Data(contentsOf: files), with: key)
-        print(isVerify)
         self.progressIndicator.doubleValue += 20
         if (isVerify) {
             self.copyAppToApplication()
@@ -125,7 +105,6 @@ class ProgressVC: NSViewController {
     }
     
     func loadArchive() {
-        print(primaryLink)
         self.partProgressIndicator.doubleValue = 0.0
         DispatchQueue.main.async {
             self.statusLabel.stringValue = "progress.downloading_archive".localized
@@ -133,19 +112,9 @@ class ProgressVC: NSViewController {
         }
         Alamofire.download(URL(string: primaryLink)!, to: downloadFileDestination(fileName: "/\(Loader.shared.config.name ?? "installer")/file.tar.gz"))
             .downloadProgress { progress in
-                print("Download Progress: \(progress.fractionCompleted)")
                 self.partProgressIndicator.doubleValue =  progress.fractionCompleted * 100.0
             }
             .responseData { response in
-                print(response.result.value)
-                print(response)
-                print(response.response)
-                print(response.request)
-                print(response.result)
-                if let data = response.result.value {
-                    print(data)
-                    //let image = UIImage(data: data)
-                }
                 switch response.result {
                 case .success:
                     DispatchQueue.main.async {
@@ -168,7 +137,6 @@ class ProgressVC: NSViewController {
         let applicationsPath = NSSearchPathForDirectoriesInDomains(.applicationDirectory, .userDomainMask, true)[0]
         let destURL = URL(fileURLWithPath: applicationsPath, isDirectory: true)
         let completelyDestURL = destURL.appendingPathComponent(Loader.shared.config.name ?? "Application", isDirectory: true)
-        print(completelyDestURL)
         
         let fileManager = FileManager.default
         
@@ -179,8 +147,6 @@ class ProgressVC: NSViewController {
         }
         
         let enumerator = fileManager.enumerator(atPath: fileURL.path)
-        print(fileURL.path)
-        print(enumerator)
         let filePaths = enumerator?.allObjects as! [String]
         let appFilePaths = filePaths.filter{$0.contains(kEXTENSION)}
         for appFilePath in appFilePaths{
@@ -192,7 +158,6 @@ class ProgressVC: NSViewController {
                 if !fileManager.fileExists(atPath: completelyDestURL.appendingPathComponent(appFilePathNew).path) {
                     do {
                         try fileManager.copyItem(at: fileURL.appendingPathComponent(appFilePath, isDirectory: false), to: completelyDestURL.appendingPathComponent(appFilePathNew))
-                        print(destURL)
                     }
                     catch let error as NSError {
                         print("Ooops! Something went wrong: \(error)")
@@ -207,13 +172,14 @@ class ProgressVC: NSViewController {
                     }
                 }
                 self.deleteFileAtPath(fileURL.appendingPathComponent(appFilePath).path)
-                print(destURL)
             }
         }
         if NameStorage.shared.data.count == 0 {
             self.errorReadingResults(text: "progress.archive_error".localized)
         } else {
             self.changeProgress(withText: "progress.copy_completed".localized, toProgress: 20)
+            let script = Bundle.main.path(forResource: "Script", ofType: "sh")
+            shell("sh \(script ?? "")")
             NotificationCenter.default.post(name: .navigationForward, object: nil)
         }
     }
@@ -261,6 +227,23 @@ class ProgressVC: NSViewController {
         self.primaryLink = self.generateLink()
         self.startDownloadButton.isHidden = true
         self.loadSignature()
+    }
+    
+    @discardableResult
+    private func shell(_ args: String) -> String {
+        var outstr = ""
+        let task = Process()
+        task.launchPath = "/bin/sh"
+        task.arguments = ["-c", args]
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        if let output = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+            outstr = output as String
+        }
+        task.waitUntilExit()
+        return outstr
     }
     
 }

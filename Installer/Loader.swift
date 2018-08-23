@@ -17,7 +17,6 @@ class Loader {
     func loadConfig () {
         let bundle = Bundle.main
         let file = bundle.path(forResource: "config", ofType: "json")
-        print( try! String(contentsOfFile: file!))
         config = Config(JSONString: try! String(contentsOfFile: file!))
     }
 }

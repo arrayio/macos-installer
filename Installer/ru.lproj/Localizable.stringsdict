@@ -25,7 +25,7 @@
 	<key>progress.copy_completed</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>Копирование завершено</string>
+		<string>Выполнение скрипта</string>
 	</dict>
 	<key>progress.archive_error</key>
 	<dict>

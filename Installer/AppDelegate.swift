@@ -15,10 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         loader.loadConfig()
-        let langStr = Locale.current.languageCode
-        print(langStr)
-        let langAnother = Locale.preferredLanguages[0]
-        print(langAnother)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
